@@ -7,6 +7,10 @@ defmodule GameOfLife.Cell do
     end
   end
 
+  def become_alive?(alive_cells, {x, y} = _dead_cell) do
+    3 == count_neighbours(alive_cells, x, y, 0)
+  end
+
   defp count_neighbours([head_cell | tail_cells], x, y, count) do
     increment = case head_cell do
       {hx, hy} when hx == x - 1 and hy == y - 1 -> 1
