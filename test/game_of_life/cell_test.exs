@@ -1,5 +1,5 @@
 defmodule GameOfLife.CellTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest GameOfLife.Cell
 
   test "alive cell with no neighbours dies" do
