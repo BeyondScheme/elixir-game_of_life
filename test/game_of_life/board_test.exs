@@ -18,4 +18,11 @@ defmodule GameOfLife.BoardTest do
     expected_alive_cells = [{4, -2}, {2, 1}]
     assert actual_alive_cells == expected_alive_cells
   end
+
+
+  test "alive cell with 2 neighbours lives on to the next generation" do
+    alive_cells = [{0, 0}, {1, 0}, {2, 0}]
+    expected_alive_cells = [{1, 0}]
+    assert GameOfLife.Board.keep_alive_tick(alive_cells) == expected_alive_cells
+  end
 end
