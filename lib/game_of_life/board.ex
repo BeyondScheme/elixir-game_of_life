@@ -15,8 +15,19 @@ defmodule GameOfLife.Board do
     |> remove_nil_cells
   end
 
+  def become_alive_tick(alive_cells, dead_neighbours) do
+    dead_neighbours
+    |> Enum.map(&(Task.async(fn -> become_alive_or_nilify(alive_cells, &1) end)))
+    |> Enum.map(&Task.await/1)
+    |> remove_nil_cells
+  end
+
   defp keep_alive_or_nilify(alive_cells, cell) do
     if GameOfLife.Cell.keep_alive?(alive_cells, cell), do: cell, else: nil
+  end
+
+  defp become_alive_or_nilify(alive_cells, dead_cell) do
+    if GameOfLife.Cell.become_alive?(alive_cells, dead_cell), do: dead_cell, else: nil
   end
 
   defp remove_nil_cells(cells) do
