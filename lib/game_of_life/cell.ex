@@ -11,6 +11,21 @@ defmodule GameOfLife.Cell do
     3 == count_neighbours(alive_cells, x, y, 0)
   end
 
+  def dead_neighbours(alive_cells) do
+    neighbours(alive_cells, []) -- alive_cells
+    |> Enum.uniq
+  end
+
+  defp neighbours([{x, y} | cells], neighbours) do
+    neighbours(cells, neighbours ++ [
+      {x - 1, y - 1}, {x    , y - 1}, {x + 1, y - 1},
+      {x - 1, y    }, {x + 1, y    },
+      {x - 1, y + 1}, {x    , y + 1}, {x + 1, y + 1}
+    ])
+  end
+
+  defp neighbours([], neighbours), do: neighbours
+
   defp count_neighbours([head_cell | tail_cells], x, y, count) do
     increment = case head_cell do
       {hx, hy} when hx == x - 1 and hy == y - 1 -> 1
