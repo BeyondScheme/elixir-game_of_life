@@ -12,8 +12,8 @@ defmodule GameOfLife.Cell do
   end
 
   def dead_neighbours(alive_cells) do
-    neighbours(alive_cells, []) -- alive_cells
-    |> Enum.uniq
+    neighbours = neighbours(alive_cells, [])
+    (neighbours |> Enum.uniq) -- alive_cells
   end
 
   defp neighbours([{x, y} | cells], neighbours) do
