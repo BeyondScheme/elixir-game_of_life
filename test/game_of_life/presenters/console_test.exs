@@ -13,9 +13,11 @@ defmodule GameOfLife.Presenters.ConsoleTest do
     end
 
     assert result == (
-    "O  \n" <>
-    " O \n" <>
-    "OOO\n"
+    "    2| O,,\n" <>
+    "    1| ,O,\n" <>
+    "    0| OOO\n" <>
+    "     | _ _ \n" <>
+    "    /  0    "
     )
   end
 end
