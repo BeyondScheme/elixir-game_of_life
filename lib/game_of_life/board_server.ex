@@ -69,7 +69,7 @@ defmodule GameOfLife.BoardServer do
     {:reply, :game_not_running, state}
   end
 
-  def handle_call(:stop_game, _from, {alive_cells, tref} = state) do
+  def handle_call(:stop_game, _from, {alive_cells, tref}) do
     {:ok, :cancel} = :timer.cancel(tref)
     {:reply, :game_stoped, {alive_cells, nil}}
   end
