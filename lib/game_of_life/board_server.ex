@@ -1,6 +1,18 @@
 defmodule GameOfLife.BoardServer do
   use GenServer
 
+  @moduledoc """
+  ## Example
+      iex> GameOfLife.BoardServer.start_game
+      :game_started
+      iex> GameOfLife.BoardServer.start_game
+      :game_already_running
+      iex> GameOfLife.BoardServer.stop_game
+      :game_stoped
+      iex> GameOfLife.BoardServer.stop_game
+      :game_not_running
+  """
+
   @name {:global, __MODULE__}
 
   @game_speed 1000 # miliseconds
@@ -19,16 +31,12 @@ defmodule GameOfLife.BoardServer do
     GenServer.cast(@name, :tick)
   end
 
-  @doc """
-  ## Example
-      iex> GameOfLife.BoardServer.start_game
-      :game_started
-
-      iex> GameOfLife.BoardServer.start_game
-      :game_already_running
-  """
   def start_game do
     GenServer.call(@name, :start_game)
+  end
+
+  def stop_game do
+    GenServer.call(@name, :stop_game)
   end
 
   def print_board do
@@ -48,6 +56,15 @@ defmodule GameOfLife.BoardServer do
 
   def handle_call(:start_game, _from, {_alive_cells, _tref} = state) do
     {:reply, :game_already_running, state}
+  end
+
+  def handle_call(:stop_game, _from, {_alive_cells, nil = _tref} = state) do
+    {:reply, :game_not_running, state}
+  end
+
+  def handle_call(:stop_game, _from, {alive_cells, tref} = state) do
+    {:ok, :cancel} = :timer.cancel(tref)
+    {:reply, :game_stoped, {alive_cells, nil}}
   end
 
   def handle_cast(:tick, {alive_cells, tref}) do
