@@ -13,6 +13,17 @@ defmodule GameOfLife.BoardServer do
       :game_not_running
       iex> GameOfLife.BoardServer.change_speed(500)
       :game_started
+      iex> GameOfLife.BoardServer.stop_game
+      :game_stoped
+
+      iex> GameOfLife.BoardServer.set_alive_cells([{0, 0}])
+      [{0, 0}]
+      iex> GameOfLife.BoardServer.alive_cells
+      [{0, 0}]
+      iex> GameOfLife.BoardServer.add_cells([{0, 1}])
+      [{0, 0}, {0, 1}]
+      iex> GameOfLife.BoardServer.alive_cells
+      [{0, 0}, {0, 1}]
   """
 
   @name {:global, __MODULE__}
@@ -27,6 +38,14 @@ defmodule GameOfLife.BoardServer do
 
   def alive_cells do
     GenServer.call(@name, :alive_cells)
+  end
+
+  def set_alive_cells(cells) do
+    GenServer.call(@name, {:set_alive_cells, cells})
+  end
+
+  def add_cells(cells) do
+    GenServer.call(@name, {:add_cells, cells})
   end
 
   def tick do
@@ -50,6 +69,15 @@ defmodule GameOfLife.BoardServer do
 
   def handle_call(:alive_cells, _from, {alive_cells, _tref} = state) do
     {:reply, alive_cells, state}
+  end
+
+  def handle_call({:set_alive_cells, cells}, _from, {_alive_cells, tref}) do
+    {:reply, cells, {cells, tref}}
+  end
+
+  def handle_call({:add_cells, cells}, _from, {alive_cells, tref}) do
+    alive_cells = GameOfLife.Board.add_cells(alive_cells, cells)
+    {:reply, alive_cells, {alive_cells, tref}}
   end
 
   def handle_call({:start_game, speed}, _from, {alive_cells, nil = _tref}) do
