@@ -17,7 +17,7 @@ defmodule GameOfLife.Presenters.ConsoleTest do
     "    1| ,O,\n" <>
     "    0| OOO\n" <>
     "     | _ _ \n" <>
-    "    /  0    "
+    "    /  0    \n"
     )
   end
 end

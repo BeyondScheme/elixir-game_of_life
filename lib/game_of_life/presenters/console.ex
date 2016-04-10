@@ -41,5 +41,6 @@ defmodule GameOfLife.Presenters.Console do
         |> IO.write
       end
     end
+    IO.puts ""
   end
 end
