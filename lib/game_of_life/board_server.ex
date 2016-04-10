@@ -1,18 +1,20 @@
 defmodule GameOfLife.BoardServer do
   use GenServer
 
+  @name {:global, __MODULE__}
+
   # Client
 
   def start_link(alive_cells) do
-    {:ok, _pid} = GenServer.start_link(__MODULE__, alive_cells, name: __MODULE__, debug: [:trace, :statistics])
+    {:ok, _pid} = GenServer.start_link(__MODULE__, alive_cells, name: @name, debug: [:trace, :statistics])
   end
 
   def alive_cells do
-    GenServer.call(__MODULE__, :alive_cells)
+    GenServer.call(@name, :alive_cells)
   end
 
   def tick do
-    GenServer.cast(__MODULE__, :tick)
+    GenServer.cast(@name, :tick)
   end
 
   def print_board do
