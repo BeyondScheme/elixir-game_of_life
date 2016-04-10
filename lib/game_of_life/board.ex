@@ -8,6 +8,7 @@ defmodule GameOfLife.Board do
     alive_cells -- kill_cells
   end
 
+  @doc "Returns cells that should still live on the next generation"
   def keep_alive_tick(alive_cells) do
     alive_cells
     |> Enum.map(&(Task.async(fn -> keep_alive_or_nilify(alive_cells, &1) end)))
@@ -15,6 +16,7 @@ defmodule GameOfLife.Board do
     |> remove_nil_cells
   end
 
+  @doc "Returns new born cells on the next generation"
   def become_alive_tick(alive_cells, dead_neighbours) do
     dead_neighbours
     |> Enum.map(&(Task.async(fn -> become_alive_or_nilify(alive_cells, &1) end)))
