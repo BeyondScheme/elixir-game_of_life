@@ -6,7 +6,7 @@ defmodule GameOfLife.BoardServer do
   # Client
 
   def start_link(alive_cells) do
-    {:ok, _pid} = GenServer.start_link(__MODULE__, alive_cells, name: @name, debug: [:trace, :statistics])
+    {:ok, _pid} = GenServer.start_link(__MODULE__, alive_cells, name: @name)
   end
 
   def alive_cells do
