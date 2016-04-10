@@ -15,6 +15,10 @@ defmodule GameOfLife.BoardServer do
     GenServer.cast(__MODULE__, :tick)
   end
 
+  def print_board do
+    GameOfLife.Presenters.Console.print(alive_cells)
+  end
+
   # Server (callbacks)
 
   def handle_call(:alive_cells, _from, alive_cells) do
