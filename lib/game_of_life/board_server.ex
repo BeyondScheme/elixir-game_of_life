@@ -22,7 +22,17 @@ defmodule GameOfLife.BoardServer do
   end
 
   def handle_cast(:tick, alive_cells) do
-    # TODO
+    keep_alive_task = Task.async(GameOfLife.Board, :keep_alive_tick, [alive_cells])
+    become_alive_task = Task.async(fn ->
+      dead_neighbours = GameOfLife.Cell.dead_neighbours(alive_cells)
+      GameOfLife.Board.become_alive_tick(alive_cells, dead_neighbours)
+    end)
+
+    keep_alive_cells = Task.await(keep_alive_task)
+    born_cells = Task.await(become_alive_task)
+
+    alive_cells = keep_alive_cells ++ born_cells
+
     {:noreply, alive_cells}
   end
 end
