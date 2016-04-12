@@ -15,9 +15,19 @@ The initial pattern constitutes the seed of the system. The first generation is 
 
 ## How to run
 
-    $ iex -S mix
+Run first node and print board in loop there.
+
+    $ iex --sname n1 -S mix
     GameOfLife.BoardServer.start_game
     GameOfLife.GamePrinter.start_printing_board
+
+Run second node and add from there a new cells to existing board on the first node.
+
+    $ iex --sname n2 -S mix
+    Node.connect :n1@Artur
+    Node.list
+    cells = [{0, 0}, {1, 0}, {2, 0}, {1, 1}]
+    :rpc.call(:n1@Artur, GameOfLife.BoardServer, :add_cells, [cells])
 
 ## Installation
 
