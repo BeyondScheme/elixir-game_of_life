@@ -1,5 +1,6 @@
 defmodule GameOfLife.BoardServer do
   use GenServer
+  require Logger
 
   @moduledoc """
   ## Example
@@ -33,7 +34,14 @@ defmodule GameOfLife.BoardServer do
   # Client
 
   def start_link(alive_cells) do
-    {:ok, _pid} = GenServer.start_link(__MODULE__, {alive_cells, nil}, name: @name)
+    case GenServer.start_link(__MODULE__, {alive_cells, nil}, name: @name) do
+      {:ok, pid} ->
+        Logger.info "Started #{__MODULE__} master"
+        {:ok, pid}
+      {:error, {:already_started, pid}} ->
+        Logger.info "Started #{__MODULE__} slave"
+        {:ok, pid}
+    end
   end
 
   def alive_cells do

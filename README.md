@@ -27,6 +27,9 @@ Run second node and add from there a new cells to existing board on the first no
     Node.connect :n1@Artur
     Node.list
     cells = [{0, 0}, {1, 0}, {2, 0}, {1, 1}]
+    GameOfLife.BoardServer.add_cells(cells)
+
+    # Example of RPC
     :rpc.call(:n1@Artur, GameOfLife.BoardServer, :add_cells, [cells])
 
 ## Installation
