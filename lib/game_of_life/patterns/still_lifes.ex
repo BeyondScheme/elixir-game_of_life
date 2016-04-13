@@ -25,4 +25,13 @@ defmodule GameOfLife.Patterns.StillLifes do
       {2, 0},
     ]
   end
+
+  # https://en.wikipedia.org/wiki/File:Game_of_life_boat.svg
+  def boat do
+    [
+      {0, 2}, {1, 2},
+      {0, 1}, {2, 1},
+      {1, 0},
+    ]
+  end
 end
