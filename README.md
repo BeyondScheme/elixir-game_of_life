@@ -26,11 +26,30 @@ Run second node and add from there a new cells to existing board on the first no
     $ iex --sname n2 -S mix
     Node.connect :n1@Artur
     Node.list
+
+Add cells to board.
+
     cells = [{0, 0}, {1, 0}, {2, 0}, {1, 1}]
     GameOfLife.BoardServer.add_cells(cells)
 
-    # Example of RPC
+Add pattern to the board.
+
+    GameOfLife.Patterns.StillLifes.block |> GameOfLife.BoardServer.add_cells
+
+Add pattern to the board at specific position.
+Move left bottom corner of the pattern to specified X and Y position.
+
+    GameOfLife.Patterns.StillLifes.block |> GameOfLife.PatternConverter.transit(-2, -3) |> GameOfLife.BoardServer.add_cells
+
+Example of RPC.
+
+    cells = [{0, 0}, {1, 0}, {2, 0}, {1, 1}]
     :rpc.call(:n1@Artur, GameOfLife.BoardServer, :add_cells, [cells])
+
+## How patterns are defined?
+
+For example `GameOfLife.Patterns.StillLifes.block` is defined in a way the last row
+contains cells for the bottom row of the pattern. Left bottom corner of the pattern is at `{0, 0}` position. The pattern is always at positive X and Y axis.
 
 ## Installation
 
