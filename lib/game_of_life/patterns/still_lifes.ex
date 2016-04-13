@@ -6,4 +6,13 @@ defmodule GameOfLife.Patterns.StillLifes do
       {0, 0}, {1, 0},
     ]
   end
+
+  # https://en.wikipedia.org/wiki/File:Game_of_life_beehive.svg
+  def beehive do
+    [
+      {1, 2}, {2, 2},
+      {0, 1}, {3, 1},
+      {1, 0}, {2, 0},
+    ]
+  end
 end
