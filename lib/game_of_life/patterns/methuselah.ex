@@ -24,4 +24,15 @@ defmodule GameOfLife.Patterns.Methuselah do
       {1, 0}, {5, 0}, {6, 0}, {7, 0},
     ]
   end
+
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_acorn.svg
+  """
+  def acorn do
+    [
+      {1, 2},
+      {3, 1},
+      {0, 0}, {1, 0}, {4, 0}, {5, 0}, {6, 0},
+    ]
+  end
 end
