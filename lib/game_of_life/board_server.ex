@@ -48,6 +48,9 @@ defmodule GameOfLife.BoardServer do
     GenServer.call(@name, :alive_cells)
   end
 
+  @doc """
+  Clears board and adds only new cells.
+  """
   def set_alive_cells(cells) do
     GenServer.call(@name, {:set_alive_cells, cells})
   end
