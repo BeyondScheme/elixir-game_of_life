@@ -48,4 +48,17 @@ defmodule GameOfLife.Patterns.Oscillators do
       {2, 0}, {3, 0}, {4, 0}, {8, 0}, {9, 0}, {10, 0},
     ]
   end
+
+  # https://en.wikipedia.org/wiki/File:I-Column.gif
+  def pentadecathlon do
+    [
+      {1, 11}, {2, 11}, {3, 11},
+      {0, 10}, {4, 10},
+      {0, 9}, {4, 9},
+      {1, 8}, {2, 8}, {3, 8},
+      {0, 2}, {4, 2},
+      {0, 1}, {4, 1},
+      {1, 0}, {2, 0}, {3, 0},
+    ]
+  end
 end
