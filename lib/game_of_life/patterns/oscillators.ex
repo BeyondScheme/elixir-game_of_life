@@ -17,4 +17,14 @@ defmodule GameOfLife.Patterns.Oscillators do
       {1, 0},
     ]
   end
+
+  # https://en.wikipedia.org/wiki/File:Game_of_life_beacon.gif
+  def beacon do
+    [
+      {0, 3}, {1, 3},
+      {0, 2},
+      {3, 1},
+      {2, 0}, {3, 0},
+    ]
+  end
 end
