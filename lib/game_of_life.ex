@@ -6,7 +6,7 @@ defmodule GameOfLife do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
-    init_alive_cells = [{0,0}, {1,0}, {2,0}, {1,1}]
+    init_alive_cells = []
 
     children = [
       # Define workers and child supervisors to be supervised
