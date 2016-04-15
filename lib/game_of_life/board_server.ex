@@ -26,7 +26,7 @@ defmodule GameOfLife.BoardServer do
       iex> GameOfLife.BoardServer.alive_cells
       [{0, 0}, {0, 1}]
       iex> GameOfLife.BoardServer.state
-      {[{0, 0}, {0, 1}], 0, 2}
+      [alive_cells: [{0, 0}, {0, 1}], generation_counter: 0, alive_counter: 2]
 
       iex> GameOfLife.BoardServer.generation_counter
       0
@@ -35,7 +35,7 @@ defmodule GameOfLife.BoardServer do
       iex> GameOfLife.BoardServer.generation_counter
       1
       iex> GameOfLife.BoardServer.state
-      {[], 1, 0}
+      [alive_cells: [], generation_counter: 1, alive_counter: 0]
   """
 
   @name {:global, __MODULE__}
@@ -65,8 +65,10 @@ defmodule GameOfLife.BoardServer do
 
   def state do
     {alive_cells, generation_counter} = GenServer.call(@name, :state)
-    lives = alive_cells |> Enum.count
-    {alive_cells, generation_counter, lives}
+    alive_counter = alive_cells |> Enum.count
+    [ alive_cells: alive_cells,
+      generation_counter: generation_counter,
+      alive_counter: alive_counter ]
   end
 
   @doc """
