@@ -7,4 +7,14 @@ defmodule GameOfLife.Patterns.Oscillators do
       {1, 2},
     ]
   end
+
+  # https://en.wikipedia.org/wiki/File:Game_of_life_toad.gif
+  def toad do
+    [
+      {2, 3},
+      {0, 2}, {3, 2},
+      {0, 1}, {3, 1},
+      {1, 0},
+    ]
+  end
 end
