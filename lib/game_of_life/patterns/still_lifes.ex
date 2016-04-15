@@ -1,5 +1,11 @@
 defmodule GameOfLife.Patterns.StillLifes do
-  # https://en.wikipedia.org/wiki/File:Game_of_life_block_with_border.svg
+  @moduledoc """
+  https://en.wikipedia.org/wiki/Still_life_(cellular_automaton)
+  """
+
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_block_with_border.svg
+  """
   def block do
     [
       {0, 1}, {1, 1},
@@ -7,7 +13,9 @@ defmodule GameOfLife.Patterns.StillLifes do
     ]
   end
 
-  # https://en.wikipedia.org/wiki/File:Game_of_life_beehive.svg
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_beehive.svg
+  """
   def beehive do
     [
       {1, 2}, {2, 2},
@@ -16,7 +24,9 @@ defmodule GameOfLife.Patterns.StillLifes do
     ]
   end
 
-  # https://en.wikipedia.org/wiki/File:Game_of_life_loaf.svg
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_loaf.svg
+  """
   def loaf do
     [
       {1, 3}, {2, 3},
@@ -26,7 +36,9 @@ defmodule GameOfLife.Patterns.StillLifes do
     ]
   end
 
-  # https://en.wikipedia.org/wiki/File:Game_of_life_boat.svg
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_boat.svg
+  """
   def boat do
     [
       {0, 2}, {1, 2},

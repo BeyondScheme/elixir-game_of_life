@@ -1,5 +1,11 @@
 defmodule GameOfLife.Patterns.Oscillators do
-  # https://en.wikipedia.org/wiki/File:Game_of_life_blinker.gif
+  @moduledoc """
+  https://en.wikipedia.org/wiki/Oscillator_(cellular_automaton)
+  """
+
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_blinker.gif
+  """
   def blinker do
     [
       {1, 0},
@@ -8,7 +14,9 @@ defmodule GameOfLife.Patterns.Oscillators do
     ]
   end
 
-  # https://en.wikipedia.org/wiki/File:Game_of_life_toad.gif
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_toad.gif
+  """
   def toad do
     [
       {2, 3},
@@ -18,7 +26,9 @@ defmodule GameOfLife.Patterns.Oscillators do
     ]
   end
 
-  # https://en.wikipedia.org/wiki/File:Game_of_life_beacon.gif
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_beacon.gif
+  """
   def beacon do
     [
       {0, 3}, {1, 3},
@@ -28,7 +38,9 @@ defmodule GameOfLife.Patterns.Oscillators do
     ]
   end
 
-  # https://en.wikipedia.org/wiki/File:Game_of_life_pulsar.gif
+  @doc """
+  https://en.wikipedia.org/wiki/File:Game_of_life_pulsar.gif
+  """
   def pulsar do
     [
       {2, 12}, {3, 12}, {4, 12}, {8, 12}, {9, 12}, {10, 12},
@@ -49,7 +61,9 @@ defmodule GameOfLife.Patterns.Oscillators do
     ]
   end
 
-  # https://en.wikipedia.org/wiki/File:I-Column.gif
+  @doc """
+  https://en.wikipedia.org/wiki/File:I-Column.gif
+  """
   def pentadecathlon do
     [
       {1, 11}, {2, 11}, {3, 11},
