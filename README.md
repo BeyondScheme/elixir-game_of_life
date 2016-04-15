@@ -36,6 +36,8 @@ Add pattern to the board.
 
     GameOfLife.Patterns.StillLifes.block |> GameOfLife.BoardServer.add_cells
 
+    GameOfLife.Patterns.Guns.gosper_glider |> GameOfLife.BoardServer.add_cells
+
 Add pattern to the board at specific position.
 Move left bottom corner of the pattern to specified X and Y position.
 
