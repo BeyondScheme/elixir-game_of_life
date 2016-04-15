@@ -1,4 +1,4 @@
-defmodule GameOfLife.Patterns.Methuselah do
+defmodule GameOfLife.Patterns.Methuselahs do
   @moduledoc """
   https://en.wikipedia.org/wiki/Methuselah_(cellular_automaton)
   """
