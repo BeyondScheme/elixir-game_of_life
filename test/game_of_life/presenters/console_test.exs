@@ -9,7 +9,7 @@ defmodule GameOfLife.Presenters.ConsoleTest do
     cells = [{0, 0}, {1, 0}, {2, 0}, {1, 1}, {0, 2}, cell_outside_of_board]
 
     result = capture_io fn ->
-      GameOfLife.Presenters.Console.print(cells, 0, 2, 2, 2)
+      GameOfLife.Presenters.Console.print(cells, 123, 0, 2, 2, 2)
     end
 
     assert result == (
@@ -17,7 +17,8 @@ defmodule GameOfLife.Presenters.ConsoleTest do
     "    1| ,O,\n" <>
     "    0| OOO\n" <>
     "     | _ _ \n" <>
-    "    /  0    \n"
+    "    /  0    \n" <>
+    "Generation: 123\n"
     )
   end
 end

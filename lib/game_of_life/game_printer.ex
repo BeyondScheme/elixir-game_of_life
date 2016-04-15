@@ -29,8 +29,9 @@ defmodule GameOfLife.GamePrinter do
   def do_start_printing_board(tref), do: {:already_printing, tref}
 
   def print_board do
-    GameOfLife.BoardServer.alive_cells
-    |> GameOfLife.Presenters.Console.print
+    alive_cells = GameOfLife.BoardServer.alive_cells
+    generation_counter = GameOfLife.BoardServer.generation_counter
+    GameOfLife.Presenters.Console.print(alive_cells, generation_counter)
   end
 
   def stop_printing_board do
