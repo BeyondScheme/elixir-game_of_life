@@ -29,8 +29,7 @@ defmodule GameOfLife.BoardTest do
 
   test "dead cell with three live neighbours becomes a live cell" do
     alive_cells = [{0, 0}, {1, 0}, {2, 0}, {1, 1}]
-    dead_neighbours = GameOfLife.Cell.dead_neighbours(alive_cells)
-    born_cells = GameOfLife.Board.become_alive_tick(alive_cells, dead_neighbours)
+    born_cells = GameOfLife.Board.become_alive_tick(alive_cells)
     expected_born_cells = [{1, -1}, {0, 1}, {2, 1}]
     assert born_cells == expected_born_cells
   end
