@@ -1,6 +1,9 @@
-# GameOfLife
+# Game Of Life in Elixir
 
 [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+
+You can run game on single node and connect other nodes into cluster.
+Game will distribute tasks across all connected nodes.
 
 ## Rules
 
