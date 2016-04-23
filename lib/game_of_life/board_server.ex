@@ -138,8 +138,8 @@ defmodule GameOfLife.BoardServer do
   end
 
   def handle_cast(:tick, {alive_cells, tref, generation_counter}) do
-    keep_alive_task = Task.async(GameOfLife.Board, :keep_alive_tick, [alive_cells])
-    become_alive_task = Task.async(GameOfLife.Board, :become_alive_tick, [alive_cells])
+    keep_alive_task = Task.Supervisor.async({GameOfLife.TaskSupervisor, GameOfLife.NodeManager.random_node}, GameOfLife.Board, :keep_alive_tick, [alive_cells])
+    become_alive_task = Task.Supervisor.async({GameOfLife.TaskSupervisor, GameOfLife.NodeManager.random_node}, GameOfLife.Board, :become_alive_tick, [alive_cells])
 
     keep_alive_cells = Task.await(keep_alive_task)
     born_cells = Task.await(become_alive_task)

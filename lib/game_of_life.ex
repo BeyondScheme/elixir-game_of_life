@@ -11,6 +11,7 @@ defmodule GameOfLife do
     children = [
       # Define workers and child supervisors to be supervised
       # worker(GameOfLife.Worker, [arg1, arg2, arg3]),
+      supervisor(Task.Supervisor, [[name: GameOfLife.TaskSupervisor]]),
       worker(GameOfLife.BoardServer, [init_alive_cells]),
       worker(GameOfLife.GamePrinter, []),
     ]
