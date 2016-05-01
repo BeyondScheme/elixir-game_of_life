@@ -20,15 +20,17 @@ The initial pattern constitutes the seed of the system. The first generation is 
 
 Run first node and print board in loop there.
 
-    $ iex --sname n1 -S mix
+    $ iex --sname node1 -S mix
     GameOfLife.BoardServer.start_game
     GameOfLife.GamePrinter.start_printing_board
 
 Run second node and add from there a new cells to existing board on the first node.
 
-    $ iex --sname n2 -S mix
-    Node.connect :n1@Artur
+    $ iex --sname node2 -S mix
+    Node.connect :node1@Artur
     Node.list
+    Node.self
+    GameOfLife.Patterns.Guns.gosper_glider |> GameOfLife.BoardServer.add_cells
 
 Add cells to board.
 
