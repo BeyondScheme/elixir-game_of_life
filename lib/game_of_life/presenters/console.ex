@@ -8,7 +8,7 @@ defmodule GameOfLife.Presenters.Console do
   will be visible on x axis.
   `y_padding` Any number. Padding for numbers on y axis.
   """
-  def print(cells, generation_counter, alive_counter, start_x \\ -80, start_y \\ 19, x_size \\ 160, y_size \\ 38, x_padding \\ 5, y_padding \\ 5) do
+  def print(cells, generation_counter, alive_counter, start_x \\ -10, start_y \\ 15, x_size \\ 60, y_size \\ 20, x_padding \\ 5, y_padding \\ 5) do
     end_x = start_x + x_size
     end_y = start_y - y_size
     x_range = start_x..end_x
