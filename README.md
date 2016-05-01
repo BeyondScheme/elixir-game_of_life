@@ -1,6 +1,6 @@
 # Game Of Life in Elixir
 
-![Game of Life](images/game_of_life_logo.png)
+![Game of Life](images/game_of_life_logo_small.png)
 
 [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
