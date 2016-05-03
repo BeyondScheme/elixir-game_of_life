@@ -1,5 +1,7 @@
 # Game Of Life in Elixir
 
+[![Circle CI](https://circleci.com/gh/BeyondScheme/elixir-game_of_life.svg?style=svg)](https://circleci.com/gh/BeyondScheme/elixir-game_of_life)
+
 ![Game of Life](images/game_of_life_logo_small.png)
 
 [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
