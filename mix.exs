@@ -30,7 +30,10 @@ defmodule GameOfLife.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:ex_doc, "~> 0.11.5", only: [:dev]},
+      {:earmark, "~> 0.2.1", only: [:dev]},
+    ]
   end
 
   defp description do

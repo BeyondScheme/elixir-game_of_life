@@ -80,6 +80,15 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:game_of_life]]
         end
 
+## Documentation
+
+Documentation online: https://hexdocs.pm/game_of_life
+
+How to generate documentation on your machine:
+
+    $ mix hex.docs
+    $ open doc/index.html
+
 # About Beyond Scheme
 
 Game Of Life in Elixir is maintained by [BeyondScheme.com](http://beyondscheme.com/?utm_source=github)
