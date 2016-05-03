@@ -64,12 +64,14 @@ contains cells for the bottom row of the pattern. Left bottom corner of the patt
 
 ## Installation
 
+https://hex.pm/packages/game_of_life
+
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
   1. Add game_of_life to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:game_of_life, "~> 0.1.0"}]
+          [{:game_of_life, "~> 1.0.0"}]
         end
 
   2. Ensure game_of_life is started before your application:
