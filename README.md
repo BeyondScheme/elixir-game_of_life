@@ -76,3 +76,11 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:game_of_life]]
         end
 
+# About Beyond Scheme
+
+Game Of Life in Elixir is maintained by [BeyondScheme.com](http://beyondscheme.com/?utm_source=github)
+
+Yet another software engineers, are we?
+We build web applications on a daily basis.
+
+See [what we do or hire us](http://beyondscheme.com/?utm_source=github) to help you with your product.
