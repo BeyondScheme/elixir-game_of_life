@@ -8,6 +8,7 @@ defmodule GameOfLife.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      description: description,
+     package: package,
      deps: deps]
   end
 
@@ -36,5 +37,12 @@ defmodule GameOfLife.Mixfile do
     """
     Distributed Game of Life with Board Server API. Run it on multiple nodes.
     """
+  end
+
+  defp package do
+    [# These are the default files included in the package
+     maintainers: ["Artur Trzop"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/BeyondScheme/elixir-game_of_life"}]
   end
 end
