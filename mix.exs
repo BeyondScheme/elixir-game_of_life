@@ -7,6 +7,7 @@ defmodule GameOfLife.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description,
      deps: deps]
   end
 
@@ -29,5 +30,11 @@ defmodule GameOfLife.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     []
+  end
+
+  defp description do
+    """
+    Distributed Game of Life with Board Server API. Run it on multiple nodes.
+    """
   end
 end
