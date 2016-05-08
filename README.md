@@ -4,7 +4,7 @@
 
 ![Game of Life](images/game_of_life_logo_small.png)
 
-You can run game on single node and connect other nodes into cluster.
+You can run game on master node and connect other nodes into cluster.
 Game will distribute tasks across all connected nodes.
 
 ## About the project
