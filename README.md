@@ -9,6 +9,14 @@
 You can run game on single node and connect other nodes into cluster.
 Game will distribute tasks across all connected nodes.
 
+## About the project
+
+Please see the article about the [Distributed Game of Life in Elixir](http://beyondscheme.com/2016/distributed-game-of-life-in-elixir).
+
+## Demo
+
+[![asciicast](https://asciinema.org/a/44233.png)](http://beyondscheme.com/2016/distributed-game-of-life-in-elixir#demo)
+
 ## Rules
 
 The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
